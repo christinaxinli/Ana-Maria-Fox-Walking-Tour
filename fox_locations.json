@@ -1,0 +1,59 @@
+[
+  {
+    "identifier": "Fox1",
+    "name": "The Poly Falmouth",
+    "address":"24 Church St Falmouth TR11 3EG United Kingdom",
+    "location": {
+      "lat" : 50.1536756,
+      "lng" : -5.0683738
+    }
+  }, {
+    "identifier": "Fox2",
+    "name": "Penjerrick Gardens",
+    "address": "Penjerrick House Budock Water TR11 5ED United Kingdom",
+    "location" : {
+      "lat" : 50.1368486,
+      "lng" : -5.1059651
+    }
+  }, {
+    "identifier": "Fox3",
+    "name": "Falmouth School of Art",
+    "address": " University College Falmouth, Woodlane, Falmouth, Cornwall TR11 4RH, United Kingdom",
+    "location" : {
+      "lat" : 50.149708,
+      "lng" : -5.071230000000014
+    }
+  }, {
+    "identifier": "Fox4",
+    "name": "King Charles the Martyr Church",
+    "address": " Church Street Falmouth TR11 3DX United Kingdom",
+    "location" : {
+      "lat" : 51.6987548,
+      "lng" : -0.20191399999998794
+    }
+  }, {
+    "identifier": "Fox5",
+    "name": "Falmouth University",
+    "address": " Penryn Campus, Treliever Road, Penryn, Cornwall TR10 9FE, United Kingdom",
+    "location" : {
+      "lat" : 50.1705496,
+      "lng" : -5.125645099999929
+    }
+ } ,  {
+  "identifier": "Fox",
+ "name": "test",
+ "address": "Sean's place",
+ "location" : {
+ "lat" : 37.3473309,
+ "lng" : -122.01389499999999
+ }
+ }, {
+  "identifier": "Fox",
+ "name": "test2",
+ "address": "SF place",
+ "location" : {
+ "lat" : 37.730343,
+ "lng" : -122.451414
+ }
+ }
+]
