@@ -40,7 +40,7 @@ class pageStart: UIPageViewController, UIPageViewControllerDataSource, UIPageVie
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            return VCArr.last
+            return VCArr.first
         }
         
         guard VCArr.count > previousIndex else {

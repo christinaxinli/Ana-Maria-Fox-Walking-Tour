@@ -39,21 +39,5 @@
       "lat" : 50.1705496,
       "lng" : -5.125645099999929
     }
- } ,  {
-  "identifier": "Fox",
- "name": "test",
- "address": "Sean's place",
- "location" : {
- "lat" : 37.3473309,
- "lng" : -122.01389499999999
- }
- }, {
-  "identifier": "Fox",
- "name": "test2",
- "address": "SF place",
- "location" : {
- "lat" : 37.730343,
- "lng" : -122.451414
- }
- }
+ } 
 ]

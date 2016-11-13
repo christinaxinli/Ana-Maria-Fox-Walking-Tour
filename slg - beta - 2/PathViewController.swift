@@ -16,7 +16,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     @IBOutlet weak var currentFox: UILabel!
     @IBOutlet weak var journeyButton: UIButton!
     
-    let locationManager = CLLocationManager ()
+    var locationManager = CLLocationManager()
     let regionRadius : CLLocationDistance = 75.0
     var currentRegion = String()
     
@@ -63,41 +63,22 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         }
     }
 
-    
-    //MARK: Authorizing app to get location
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // 1. status is not determined
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-            locationManager.requestAlwaysAuthorization()
-        }
-            // 2. authorization were denied
-        else if CLLocationManager.authorizationStatus() == .denied {
-            let alert = UIAlertController(title: "Alert", message: "Location services were previously denied. Please enable location services for this app in Settings.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-            // 3. we do have authorization
-        else if CLLocationManager.authorizationStatus() == .authorizedAlways {
-            locationManager.startUpdatingLocation()
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        // 2. setup locationManager
         locationManager.delegate = self;
-        locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
         
-        // 3. setup mapView
         mapView.delegate = self
+        mapView.mapType = MKMapType.hybrid
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         
-        //centerMapOnLocation(location: (CLLocation[CLLocation.count - 1]))
         
         getJSON()
         
@@ -106,26 +87,40 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+        }
     }
+    
+    private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            print("NotDetermined")
+        case .restricted:
+            print("Restricted")
+        case .denied:
+            print("Denied")
+        case .authorizedAlways:
+            print("AuthorizedAlways")
+        case .authorizedWhenInUse:
+            print("AuthorizedWhenInUse")
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+        {
+            let location = locations.first!
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
+            mapView.setRegion(coordinateRegion, animated: true)
+            locationManager.stopUpdatingLocation()
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: NSError) {
+            print("Failed to initialize GPS: ", error.description)
+        }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
-    //MARK: Actions
-    
-    //MARK: Center the map
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 10, regionRadius * 20)
-        mapView.setRegion(coordinateRegion,animated: true)
-    }
-    
-    internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-    {
-        centerMapOnLocation(location: locations[locations.count - 1]);
-    }
     
     //MARK: fox image
     func mapView(_ mapView: MKMapView, viewFor annotation:MKAnnotation) -> MKAnnotationView? {
