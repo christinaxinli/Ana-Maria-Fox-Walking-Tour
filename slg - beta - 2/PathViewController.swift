@@ -19,7 +19,36 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     var locationManager = CLLocationManager()
     let regionRadius : CLLocationDistance = 75.0
     var currentRegion = String()
-    
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            locationManager.startUpdatingLocation()
+        } else {
+            locationManager.requestAlwaysAuthorization()
+        }
+        getJSON()
+
+        
+        mapView.delegate = self
+        mapView.mapType = MKMapType.standard
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
+        
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+        }
+    }
     //MARK: unwrap JSON and create regions
     
     func getJSON () {
@@ -34,21 +63,20 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                     if let name = singleLocation["name"] as? String {
                         if let lat = singleLocation["location"]?["lat"] as? Double {
                             if let lng = singleLocation["location"]!["lng"]! as? Double {
-                            
+                                
                                 //MARK: turn locations into regions
                                 let coordinate = CLLocationCoordinate2DMake(lat, lng)
                                 let circularRegion = CLCircularRegion.init(center: coordinate, radius: regionRadius, identifier: identifiers)
-                            
                                 locationManager.startMonitoring(for: circularRegion)
                                 print("yes \(name)")
-                            
-                            
+                                
+                                
                                 //MARK: Annotate the locations
                                 let foxAnnotation = MKPointAnnotation ()
                                 foxAnnotation.coordinate = coordinate
                                 foxAnnotation.title = "\(name)"
                                 mapView.addAnnotations([foxAnnotation])
-                            
+                                
                                 //MARK: Draw Circles around regions/annotations
                                 let circle = MKCircle(center: coordinate, radius: regionRadius)
                                 mapView.add(circle)
@@ -62,36 +90,6 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             print ("error serializing JSON: \(error)")
         }
     }
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        locationManager.delegate = self;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            locationManager.startUpdatingLocation()
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        
-        mapView.delegate = self
-        mapView.mapType = MKMapType.hybrid
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
-        
-        
-        getJSON()
-        
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        
-        func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-        }
-    }
     
     private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status {
@@ -103,9 +101,9 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             print("Denied")
         case .authorizedAlways:
             print("AuthorizedAlways")
+            locationManager.startUpdatingLocation()
         case .authorizedWhenInUse:
             print("AuthorizedWhenInUse")
-            locationManager.startUpdatingLocation()
         }
     }
     
@@ -114,7 +112,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             let location = locations.first!
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
             mapView.setRegion(coordinateRegion, animated: true)
-            locationManager.stopUpdatingLocation()
+            //locationManager.stopUpdatingLocation()
         }
         
         func locationManager(_ manager: CLLocationManager, didFailWithError error: NSError) {
@@ -180,6 +178,14 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         currentRegion="NA"
         currentFox.text="Go to the next Location"
 
+    }
+    
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: NSError) {
+        print("Error:" + error.localizedDescription)
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        print("Error:" + error.localizedDescription)
     }
 
 

@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need this to monitor when you enter or exit a new area of exploration</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>“Regions needs to always be able to access your location.”</string>
+	<string>We need this to guide you to the next area of exploration</string>
 	<key>NSCameraUsageDescription</key>
 	<string>&quot;Needs camera permission to take pictures&quot;</string>
 	<key>NSAppleMusicUsageDescription</key>
