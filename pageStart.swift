@@ -25,6 +25,7 @@ class pageStart: UIPageViewController, UIPageViewControllerDataSource, UIPageVie
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
+        print("\(VCArr)")
         
         if let firstVC = VCArr.first {
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
