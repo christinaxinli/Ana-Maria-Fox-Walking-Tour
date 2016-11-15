@@ -11,18 +11,18 @@ import UIKit
 class diaryEntry {
     var location: String
     var photo: UIImage?
-    var text: String
+    //var text: String
 
 //MARK: Initialization
 
-    init?(location: String, photo: UIImage?, text: String){
+    init?(location: String, photo: UIImage?/*, text: String*/){
         //Initialize stored properties
         self.location = location
         self.photo = photo
-        self.text = text
+        //self.text = text
     
-        if location.isEmpty || text.isEmpty {
-            return nil
-        }
+//        if location.isEmpty || text.isEmpty {
+//            return nil
+//        }
     }
 }

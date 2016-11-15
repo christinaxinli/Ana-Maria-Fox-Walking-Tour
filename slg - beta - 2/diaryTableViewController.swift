@@ -15,13 +15,13 @@ class diaryTableViewController: UITableViewController {
     
     func loadSampleEntries() {
         let photo1 = UIImage(named: "Image-1")!
-        let entry1 = diaryEntry(location: "first", photo: photo1, text: "onetwothreefour")!
+        let entry1 = diaryEntry(location: "first", photo: photo1)!
         
         let photo2 = UIImage(named:"Image-2")!
-        let entry2 = diaryEntry(location: "second", photo: photo2, text: "onetwothreefour")!
+        let entry2 = diaryEntry(location: "second", photo: photo2)!
         
         let photo3 = UIImage(named:"Image-3")!
-        let entry3 = diaryEntry(location: "third", photo: photo3, text: "onetwothreefour")!
+        let entry3 = diaryEntry(location: "third", photo: photo3)!
         
         entries+=[entry1, entry2, entry3]
     }
@@ -58,7 +58,7 @@ class diaryTableViewController: UITableViewController {
             
             cell.locationName.text = entry.location
             cell.diaryPhoto.image = entry.photo
-            cell.diaryText.text = entry.text
+            //cell.diaryText.text = entry.text
             
             print (cell)
             

@@ -1,55 +1,4 @@
-//
-//  JourneyViewController.swift
-//  slg - beta - 2
-//
-//  Created by Sean Keenan on 7/31/16.
-//  Copyright © 2016 Christina li. All rights reserved.
-//
-////
-//import Foundation
-//import UIKit
-//
-//class JourneyViewController: UIViewController, UINavigationControllerDelegate {
-//    
-//    //MARK: Variables
-//    @IBOutlet weak var menuButton: UIBarButtonItem!
-//    var currentFox: String = "NA"
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        
-//        print("View controller for \(currentFox)")
-//        
-//        //MARK: Switching between storyboards
-//        
-//        let storyboard = UIStoryboard(name:"Main",bundle:nil)
-//
-//        
-//        switch currentFox {
-//        case "Fox1":
-//            let svc=storyboard.instantiateViewController(withIdentifier: "Fox1") as! Fox1
-//            self.present(svc,animated: true, completion: nil)
-//            
-//        case "Fox2":
-//            let svc=storyboard.instantiateViewController(withIdentifier: "Fox2") as! Fox2
-//            self.present(svc,animated: true, completion: nil)
-//        
-//        case "Fox3":
-//            let svc=storyboard.instantiateViewController(withIdentifier: "Fox3") as! Fox3
-//            self.present(svc,animated: true, completion: nil)
-//            
-//        default:
-//            let svc=storyboard.instantiateViewController(withIdentifier: "Instructions") as! InstructionsViewController
-//            self.present(svc,animated: true, completion: nil)
-//        }
-//        
-//    }
-//    
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//}
+
 
 import UIKit
 
@@ -68,7 +17,7 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
             pageNames.append(contentsOf: Fox2)
             
         case "Fox3":
-            let Fox3: [String] = ["Fox3_pg1","start_pg2","start_pg3"]
+            let Fox3: [String] = ["start_pg1","start_pg2","start_pg3"]
             pageNames.append(contentsOf: Fox3)
             
         default:
@@ -96,7 +45,6 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View controller for \(currentFox) for \(VCArr)")
         self.dataSource = self
         self.delegate = self
         
@@ -108,18 +56,23 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = VCArr.index(of: viewController) else {
+            print("check1")
             return nil
         }
         
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
+            print("check2")
             return VCArr.first
         }
         
         guard VCArr.count > previousIndex else {
+            print("check3")
             return nil
         }
+        
+        print("check4")
         
         return VCArr[previousIndex]
         
@@ -127,19 +80,22 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
     
     internal func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = VCArr.index(of: viewController) else {
+            print("check5")
             return nil
         }
         
         let nextIndex = viewControllerIndex + 1
         
         guard nextIndex < VCArr.count else {
+            print("check6")
             return VCArr.first
         }
         
         guard VCArr.count > nextIndex else {
+            print("check7")
             return nil
         }
-        
+        print("check8")
         return VCArr[nextIndex]
         
     }

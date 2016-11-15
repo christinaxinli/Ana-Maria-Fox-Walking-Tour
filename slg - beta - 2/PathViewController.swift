@@ -68,7 +68,6 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                                 let coordinate = CLLocationCoordinate2DMake(lat, lng)
                                 let circularRegion = CLCircularRegion.init(center: coordinate, radius: regionRadius, identifier: identifiers)
                                 locationManager.startMonitoring(for: circularRegion)
-                                print("yes \(name)")
                                 
                                 
                                 //MARK: Annotate the locations

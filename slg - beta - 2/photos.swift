@@ -15,7 +15,7 @@ class photos: UIViewController, UIImagePickerControllerDelegate, UITextViewDeleg
     //MARK: Variables
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var diaryText: UITextView!
+    //@IBOutlet weak var diaryText: UITextView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var identifier: UITextField!
     /*
@@ -36,7 +36,7 @@ class photos: UIViewController, UIImagePickerControllerDelegate, UITextViewDeleg
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            diaryText.delegate = self
+            //diaryText.delegate = self
         }
         
         imagePicker.delegate = self
@@ -53,10 +53,10 @@ class photos: UIViewController, UIImagePickerControllerDelegate, UITextViewDeleg
         if saveButton === sender {
             let location = identifier.text ?? ""
             let photo = photoImageView.image
-            let text = diaryText.text
+            //let text = diaryText.text
             
             //set entry to be passed after unwind segue
-            entry = diaryEntry(location: location, photo: photo, text: text!)
+            entry = diaryEntry(location: location, photo: photo/*, text: text!*/)
         }
     }
     
@@ -92,20 +92,20 @@ class photos: UIViewController, UIImagePickerControllerDelegate, UITextViewDeleg
     
     //  MARK: UI Text Field editing
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            diaryText.resignFirstResponder()
-            return false
-        }
-        return true
-    }
-    @IBAction func identifierTextView(_ sender: UITextField) {
-        identifier.resignFirstResponder()
-    }
-
-    private func textViewDidEndEditing(textView: UITextView){
-        diaryText.resignFirstResponder()
-    }
+//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//        if(text == "\n") {
+//            diaryText.resignFirstResponder()
+//            return false
+//        }
+//        return true
+//    }
+//    @IBAction func identifierTextView(_ sender: UITextField) {
+//        identifier.resignFirstResponder()
+//    }
+//
+//    private func textViewDidEndEditing(textView: UITextView){
+//        diaryText.resignFirstResponder()
+//    }
     
 
 }
