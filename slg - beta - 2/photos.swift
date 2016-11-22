@@ -49,8 +49,8 @@ class photos: UIViewController, UIImagePickerControllerDelegate, UITextViewDeleg
     }
     //MARK:Navigation
     // This method lets you configure a view controller before it's presented.
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        if saveButton === sender {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if sender is UIButton{
             let location = identifier.text ?? ""
             let photo = photoImageView.image
             //let text = diaryText.text

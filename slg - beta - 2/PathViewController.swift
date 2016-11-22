@@ -52,7 +52,8 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     //MARK: unwrap JSON and create regions
     
     func getJSON () {
-        let url = Bundle.main().urlForResource("fox_locations", withExtension: "json")
+        let url = Bundle.main.url(forResource: "fox_locations", withExtension: "json")
+        //let url = Bundle.main.urlForResource("fox_locations", withExtension: "json")
         let data = NSData(contentsOf: url!)
         
         do {
@@ -114,8 +115,8 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
             //locationManager.stopUpdatingLocation()
         }
         
-        func locationManager(_ manager: CLLocationManager, didFailWithError error: NSError) {
-            print("Failed to initialize GPS: ", error.description)
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+            print("Failed to initialize GPS: ", error.localizedDescription)
         }
 
     
@@ -150,7 +151,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     //MARK: Circle drawing
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let circleRenderer = MKCircleRenderer(overlay: overlay)
-        circleRenderer.strokeColor = UIColor.blue()
+        circleRenderer.strokeColor = UIColor.blue
         circleRenderer.lineWidth = 2.0
         return circleRenderer
     }
@@ -161,7 +162,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("enter \(region.identifier)")
         currentRegion = region.identifier
-        currentFox.text = region.identifier
+        currentFox.text = "Click to discover this new Fox Spot"
     }
     
     @IBAction func journeyButtonTapped(_ sender: UIButton) {
@@ -179,7 +180,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
 
     }
     
-    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: NSError) {
+    private func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: NSError) {
         print("Error:" + error.localizedDescription)
     }
     
