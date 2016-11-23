@@ -3,10 +3,12 @@
 import UIKit
 
 class JourneyViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-    var currentFox: String = "NA"
+    var currentFox: String!
     var pageNames: [String] = []
     
+    
     func createNames () -> [String] {
+        print(" createNames \(currentFox)")
         switch currentFox {
         case "Fox1":
             let Fox1: [String] = ["Fox1_pg1","Fox1_pg2","Fox1_pg3"]
@@ -17,7 +19,8 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
             pageNames.append(contentsOf: Fox2)
             
         case "Fox3":
-            let Fox3: [String] = ["Fox3_pg1","Fox3_pg2","Fox3_pg3"]
+            print("Fox 3")
+            let Fox3: [String] = ["Fox3_pg1","Fox3_pg2"]
             pageNames.append(contentsOf: Fox3)
             
         default:
@@ -29,8 +32,13 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
     
     
     func VCInstance(name: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
-        
+        var thisViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
+        if let journeyController = thisViewController as? ViewController {
+            journeyController.currentFox = self.currentFox;
+            print("works")
+            return journeyController
+        }
+        return thisViewController
     }
     
     lazy var VCArr: [UIViewController] = {
@@ -47,8 +55,11 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
+        print("view load sean \(currentFox)")
         
         if let firstVC = VCArr.first {
+            print("view controller to launch: \(firstVC)")
+            print("extra stuff")
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
         
@@ -112,5 +123,6 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
         return firstViewControllerIndex
     }
     
+
 }
 

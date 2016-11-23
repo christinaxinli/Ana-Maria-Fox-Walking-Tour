@@ -18,7 +18,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     var locationManager = CLLocationManager()
     let regionRadius : CLLocationDistance = 75.0
-    var currentRegion = String()
+    var currentRegion: String!
 
 
     override func viewDidLoad() {
@@ -168,6 +168,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     @IBAction func journeyButtonTapped(_ sender: UIButton) {
         let jvc = JourneyViewController()
         jvc.currentFox = currentRegion
+        print("Current region : \(currentRegion)")
         navigationController?.pushViewController(jvc, animated: true)
     }
     
@@ -176,7 +177,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         print("exit \(region.identifier)")
         currentRegion="NA"
-        currentFox.text="Go to the next Location"
+        currentFox.text="Please enter a new Fox Spot"
 
     }
     

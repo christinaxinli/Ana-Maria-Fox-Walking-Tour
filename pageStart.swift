@@ -81,5 +81,4 @@ class pageStart: UIPageViewController, UIPageViewControllerDataSource, UIPageVie
         
         return firstViewControllerIndex
     }
-    
 }

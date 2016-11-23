@@ -22,6 +22,7 @@
 		D251523A1D5C473600CC8006 /* Fox2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25152391D5C473600CC8006 /* Fox2.swift */; };
 		D251523C1D5C473F00CC8006 /* Fox3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251523B1D5C473F00CC8006 /* Fox3.swift */; };
 		D254CE961DDAD4970092EA77 /* SocialMediaPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D254CE951DDAD4970092EA77 /* SocialMediaPhoto.swift */; };
+		D25CC2851DE53DFC00B0D581 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25CC2841DE53DFC00B0D581 /* ViewController.swift */; };
 		D2CA50611D330E3B00B1E58F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA50601D330E3B00B1E58F /* AppDelegate.swift */; };
 		D2CA50631D330E3B00B1E58F /* PathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA50621D330E3B00B1E58F /* PathViewController.swift */; };
 		D2CA50661D330E3B00B1E58F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CA50641D330E3B00B1E58F /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		D25152391D5C473600CC8006 /* Fox2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fox2.swift; sourceTree = "<group>"; };
 		D251523B1D5C473F00CC8006 /* Fox3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fox3.swift; sourceTree = "<group>"; };
 		D254CE951DDAD4970092EA77 /* SocialMediaPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaPhoto.swift; sourceTree = "<group>"; };
+		D25CC2841DE53DFC00B0D581 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D294405B1D7CECCB005B140A /* walking geo.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "walking geo.gpx"; path = "../../walking geo.gpx"; sourceTree = "<group>"; };
 		D2CA505D1D330E3B00B1E58F /* slg - beta - 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "slg - beta - 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CA50601D330E3B00B1E58F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				D2CA50621D330E3B00B1E58F /* PathViewController.swift */,
 				D204A0641D7D5575007D4EAA /* diaryEntryTableViewCell.swift */,
 				D2CA50641D330E3B00B1E58F /* Main.storyboard */,
+				D25CC2841DE53DFC00B0D581 /* ViewController.swift */,
 				D249ABCE1D7DC9C000727776 /* InstructionsViewController.swift */,
 				D204A0761D7D643A007D4EAA /* diaryTableViewController - old.swift */,
 				D204A0661D7D5806007D4EAA /* diaryentryText - old.swift */,
@@ -225,6 +228,7 @@
 				D251523C1D5C473F00CC8006 /* Fox3.swift in Sources */,
 				D2EAFF971D4EF009000DF886 /* JourneyViewController.swift in Sources */,
 				D249ABCF1D7DC9C000727776 /* InstructionsViewController.swift in Sources */,
+				D25CC2851DE53DFC00B0D581 /* ViewController.swift in Sources */,
 				D22C6E671DDA9EA200327C7B /* DiaryTableViewController.swift in Sources */,
 				D204A0691D7D5A18007D4EAA /* diaryentry - old.swift in Sources */,
 			);
