@@ -20,7 +20,7 @@ class DiaryViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Set up views if editing an existing entry.
         if let entry = entry {
             navigationItem.title = entry.name
-            nameTextField.text   = entry.name
+            nameTextField.text = entry.name
             photoImageView.image = entry.photo
             //ratingControl.rating = meal.rating
         }
@@ -85,19 +85,41 @@ class DiaryViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
 
     
     // This method lets you configure a view controller before it's presented.
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if sender == saveButton{
+//            print ("saved")
+//            let name = nameTextField.text ?? ""
+//            let photo = photoImageView.image
+//            
+//            // Set the entry to be passed to DiaryListTableViewController after the unwind segue.
+//            entry = Diary(name: name, photo: photo!)
+//        }
+//        
+//        print("not saved")
+//    }
+    
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        let name = nameTextField.text ?? ""
+        let photo = photoImageView.image
+        
+        // Set the entry to be passed to DiaryListTableViewController after the unwind segue.
+        entry = Diary(name: name, photo: photo!)
+        
+        
+        //navigationController?.pushViewController(DiaryTableViewController, animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if sender === saveButton
-        if sender is UIButton {
+        //if segue.identifier == "AddNew" {
+            //segue.destination as! DiaryTableViewController
             let name = nameTextField.text ?? ""
             let photo = photoImageView.image
-            //let rating = ratingControl.rating
             
             // Set the entry to be passed to DiaryListTableViewController after the unwind segue.
             entry = Diary(name: name, photo: photo!)
-        }
-        
-        
+        //}
     }
+    
     
     // MARK: Actions
     

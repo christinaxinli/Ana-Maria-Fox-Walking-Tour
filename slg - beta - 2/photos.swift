@@ -76,7 +76,7 @@ class photos: UIViewController, UIImagePickerControllerDelegate, UITextViewDeleg
     // MARK: - UIImagePickerControllerDelegate Methods
     
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             photoImageView.contentMode = .scaleAspectFit
             photoImageView.image = pickedImage

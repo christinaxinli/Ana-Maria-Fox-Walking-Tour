@@ -3,7 +3,7 @@
 import UIKit
 
 class JourneyViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-    var currentFox: String!
+    var currentFox: String! = "NA"
     var pageNames: [String] = []
     
     
@@ -32,7 +32,7 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
     
     
     func VCInstance(name: String) -> UIViewController {
-        var thisViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
+        let thisViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: name)
         if let journeyController = thisViewController as? ViewController {
             journeyController.currentFox = self.currentFox;
             print("works")

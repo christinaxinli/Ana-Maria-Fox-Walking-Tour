@@ -17,12 +17,12 @@ class SocialMediaPhoto: UIViewController {
     @IBOutlet weak var Image4: UIImageView!
     @IBOutlet weak var Image3: UIImageView!
     @IBOutlet weak var Image2: UIImageView!
-    func loadMeals() -> [Diary]? {
+    func loadEntries() -> [Diary]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Diary.ArchiveURL.path) as? [Diary]
     }
     
     func unwrapPhotos() -> [UIImage] {
-        let collection: [Diary] = loadMeals()!
+        let collection: [Diary] = loadEntries()!
         var images: [UIImage] = []
         for i in 0..<collection.count {
             images.append(collection[i].photo)

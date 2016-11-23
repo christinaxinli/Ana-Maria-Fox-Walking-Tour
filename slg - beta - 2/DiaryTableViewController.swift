@@ -11,25 +11,30 @@ import UIKit
 
 class DiaryTableViewController: UITableViewController {
     // MARK: Properties
-    
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     var entries = [Diary]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Use the edit button item provided by the table view controller.
-        navigationItem.leftBarButtonItem = editButtonItem
+        navigationItem.rightBarButtonItem = editButtonItem
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         
         // Load any saved meals, otherwise load sample data.
-        if let savedMeals = loadMeals() {
-            entries += savedMeals
+        if let savedEntries = loadEntries() {
+            entries += savedEntries
         } else {
             // Load the sample data.
-            loadSampleMeals()
+            loadSampleEntries()
         }
     }
     
-    func loadSampleMeals() {
+    func loadSampleEntries() {
         let photo1 = UIImage(named: "falmouth1")!
         let entry1 = Diary(name: "Caprese Salad", photo: photo1)!
         
@@ -84,7 +89,7 @@ class DiaryTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             entries.remove(at: (indexPath as NSIndexPath).row)
-            saveMeals()
+            saveEntries()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -141,20 +146,20 @@ class DiaryTableViewController: UITableViewController {
                 tableView.insertRows(at: [newIndexPath], with: .bottom)
             }
             // Save the meals.
-            saveMeals()
+            saveEntries()
         }
     }
     
     // MARK: NSCoding
     
-    func saveMeals() {
+    func saveEntries() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(entries, toFile: Diary.ArchiveURL.path)
         if !isSuccessfulSave {
             print("Failed to save meals...")
         }
     }
     
-    func loadMeals() -> [Diary]? {
+    func loadEntries() -> [Diary]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Diary.ArchiveURL.path) as? [Diary]
     }
 }
