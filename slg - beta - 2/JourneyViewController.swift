@@ -20,7 +20,7 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
             
         case "Fox3":
             print("Fox 3")
-            let Fox3: [String] = ["Fox3_pg1","Fox3_pg2"]
+            let Fox3: [String] = ["Fox3_pg1","Fox3_pg2","Fox3_pg3"]
             pageNames.append(contentsOf: Fox3)
             
         default:
@@ -55,11 +55,8 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
-        print("view load sean \(currentFox)")
         
         if let firstVC = VCArr.first {
-            print("view controller to launch: \(firstVC)")
-            print("extra stuff")
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
         
@@ -67,23 +64,19 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = VCArr.index(of: viewController) else {
-            print("check1")
             return nil
         }
         
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            print("check2")
             return VCArr.first
         }
         
         guard VCArr.count > previousIndex else {
-            print("check3")
             return nil
         }
         
-        print("check4")
         
         return VCArr[previousIndex]
         
@@ -91,22 +84,18 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
     
     internal func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = VCArr.index(of: viewController) else {
-            print("check5")
             return nil
         }
         
         let nextIndex = viewControllerIndex + 1
         
         guard nextIndex < VCArr.count else {
-            print("check6")
             return VCArr.first
         }
         
         guard VCArr.count > nextIndex else {
-            print("check7")
             return nil
         }
-        print("check8")
         return VCArr[nextIndex]
         
     }
