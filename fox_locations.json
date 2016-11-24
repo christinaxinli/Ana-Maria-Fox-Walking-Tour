@@ -9,11 +9,11 @@
     }
   }, {
     "identifier": "Fox2",
-    "name": "Penjerrick Gardens",
-    "address": "Penjerrick House Budock Water TR11 5ED United Kingdom",
+    "name": "Falmouth Docks",
+    "address": "NA",
     "location" : {
-      "lat" : 50.1368486,
-      "lng" : -5.1059651
+      "lat" : 50.15069,
+      "lng" : -5.056069999999977
     }
   }, {
     "identifier": "Fox3",
@@ -24,12 +24,12 @@
       "lng" : -5.071230000000014
     }
   }, {
-    "identifier": "Fox4",
-    "name": "King Charles the Martyr Church",
-    "address": " Church Street Falmouth TR11 3DX United Kingdom",
+    "identifier": "Fox2",
+    "name": "Penjerrick Gardens",
+    "address": "Penjerrick House Budock Water TR11 5ED United Kingdom",
     "location" : {
-      "lat" : 51.6987548,
-      "lng" : -0.20191399999998794
+        "lat" : 50.1368486,
+        "lng" : -5.1059651
     }
   }, {
     "identifier": "Fox5",

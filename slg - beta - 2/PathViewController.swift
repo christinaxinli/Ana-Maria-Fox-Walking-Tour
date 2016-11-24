@@ -162,7 +162,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("enter \(region.identifier)")
         currentRegion = region.identifier
-        currentFox.text = "Click to discover this new Fox Spot"
+        currentFox.text = "Click here to explore this new Fox Spot"
     }
     
     @IBAction func journeyButtonTapped(_ sender: UIButton) {

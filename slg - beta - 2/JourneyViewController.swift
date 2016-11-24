@@ -11,11 +11,11 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
         print(" createNames \(currentFox)")
         switch currentFox {
         case "Fox1":
-            let Fox1: [String] = ["Fox1_pg1","Fox1_pg2","Fox1_pg3"]
+            let Fox1: [String] = ["Fox1_pg1","Fox1_pg2","Fox1_pg3", "Fox1_pg4"]
             pageNames.append(contentsOf: Fox1)
             
         case "Fox2":
-            let Fox2: [String] = ["Fox2_pg1","Fox2_pg2","Fox2_pg3"]
+            let Fox2: [String] = ["Fox2_pg1","Fox2_pg2","Fox2_pg3", "Fox2_pg4"]
             pageNames.append(contentsOf: Fox2)
             
         case "Fox3":
