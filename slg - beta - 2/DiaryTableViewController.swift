@@ -18,19 +18,22 @@ class DiaryTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Use the edit button item provided by the table view controller.
-        navigationItem.rightBarButtonItem = editButtonItem
+        
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            print ("activate menu")
         }
+        
+        navigationItem.rightBarButtonItem = editButtonItem
         
         // Load any saved meals, otherwise load sample data.
         if let savedEntries = loadEntries() {
             entries += savedEntries
         } else {
             // Load the sample data.
-            loadSampleEntries()
+            //loadSampleEntries()
         }
     }
     
