@@ -18,7 +18,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     var locationManager = CLLocationManager()
     let regionRadius : CLLocationDistance = 75.0
-    var currentRegion: String!
+    var currentRegion: String! = "NA"
 
 
     override func viewDidLoad() {
@@ -53,7 +53,6 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     func getJSON () {
         let url = Bundle.main.url(forResource: "fox_locations", withExtension: "json")
-        //let url = Bundle.main.urlForResource("fox_locations", withExtension: "json")
         let data = NSData(contentsOf: url!)
         
         do {
@@ -69,7 +68,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                                 let coordinate = CLLocationCoordinate2DMake(lat, lng)
                                 let circularRegion = CLCircularRegion.init(center: coordinate, radius: regionRadius, identifier: identifiers)
                                 locationManager.startMonitoring(for: circularRegion)
-                                
+                                print ("\(circularRegion)")
                                 
                                 //MARK: Annotate the locations
                                 let foxAnnotation = MKPointAnnotation ()
@@ -162,7 +161,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("enter \(region.identifier)")
         currentRegion = region.identifier
-        currentFox.text = "Click here to explore this new Fox Spot"
+        currentFox.text = "Click to explore this new Fox Spot"
     }
     
     @IBAction func journeyButtonTapped(_ sender: UIButton) {

@@ -134,7 +134,7 @@ class DiaryViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             print("something went wrong with imagepicker")
         }
         
-        // Set photoImageView to display the selected image.
+        
         
         
         // Dismiss the picker.

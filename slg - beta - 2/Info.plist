@@ -11,7 +11,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>&quot;Needs camera permission to take pictures&quot;</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>YES</string>
+	<string>&quot;We need this permission to use photos you take in each Fox Spot for the diary&quot;</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>CFBundleDevelopmentRegion</key>

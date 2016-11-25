@@ -20,7 +20,7 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
             
         case "Fox3":
             print("Fox 3")
-            let Fox3: [String] = ["Fox3_pg1","Fox3_pg2","Fox3_pg3", "Fox3_pg4"]
+            let Fox3: [String] = ["Fox3_pg1","Fox3_pg2","Fox3_pg3", "Fox3_pg4","Fox3_pg5"]
             pageNames.append(contentsOf: Fox3)
             
         default:

@@ -9,11 +9,11 @@
     }
   }, {
     "identifier": "Fox2",
-    "name": "Falmouth Docks",
+    "name": "Prince of Wales Pier",
     "address": "NA",
     "location" : {
-      "lat" : 50.15069,
-      "lng" : -5.056069999999977
+      "lat" : 50.156372,
+      "lng" : -5.070391500000028
     }
   }, {
     "identifier": "Fox3",
@@ -24,7 +24,7 @@
       "lng" : -5.071230000000014
     }
   }, {
-    "identifier": "Fox2",
+    "identifier": "Fox4",
     "name": "Penjerrick Gardens",
     "address": "Penjerrick House Budock Water TR11 5ED United Kingdom",
     "location" : {
