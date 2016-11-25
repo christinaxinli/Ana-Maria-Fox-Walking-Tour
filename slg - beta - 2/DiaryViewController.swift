@@ -124,7 +124,7 @@ class DiaryViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         dismiss(animated: true, completion: nil)
     }
     
-//    @nonobjc internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : Any]) {
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // The info dictionary contains multiple representations of the image, and this uses the original.
         
