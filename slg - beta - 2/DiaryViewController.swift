@@ -112,7 +112,7 @@ class DiaryViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         imagePickerController.sourceType = .photoLibrary
         
         // Make sure ViewController is notified when the user picks an image.
-        
+        imagePickerController.delegate = self
         
         present(imagePickerController, animated: true, completion: nil)
     }
@@ -124,7 +124,8 @@ class DiaryViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         dismiss(animated: true, completion: nil)
     }
     
-    @nonobjc internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//    @nonobjc internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:[String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // The info dictionary contains multiple representations of the image, and this uses the original.
         
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
