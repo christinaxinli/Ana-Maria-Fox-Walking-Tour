@@ -1,6 +1,7 @@
 
 
 import UIKit
+import Crashlytics
 
 class JourneyViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     var currentFox: String! = "NA"
@@ -23,6 +24,10 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
             let Fox3: [String] = ["Fox3_pg1","Fox3_pg2","Fox3_pg3", "Fox3_pg4","Fox3_pg5"]
             pageNames.append(contentsOf: Fox3)
             
+        case "Fox4":
+            print("Fox 4")
+            let Fox4: [String] = ["Fox4_pg1","Fox4_pg2","Fox4_pg3","Fox4_pg4"]
+            pageNames.append(contentsOf: Fox4)
         default:
             pageNames.append("InstructionsViewController")
         }
@@ -59,6 +64,11 @@ class JourneyViewController: UIPageViewController, UIPageViewControllerDataSourc
         if let firstVC = VCArr.first {
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
+        
+        Answers.logCustomEvent(withName: "View loaded",
+                               customAttributes: [
+                                "Which View": currentFox!
+            ])
         
     }
     

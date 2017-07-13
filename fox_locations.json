@@ -9,11 +9,11 @@
     }
   }, {
     "identifier": "Fox2",
-    "name": "Prince of Wales Pier",
+    "name": "Harbourside",
     "address": "NA",
     "location" : {
-      "lat" : 50.156372,
-      "lng" : -5.070391500000028
+      "lat" : 50.1613008,
+      "lng" : -5.074502499999994
     }
   }, {
     "identifier": "Fox3",
@@ -31,13 +31,5 @@
         "lat" : 50.1368486,
         "lng" : -5.1059651
     }
-  }, {
-    "identifier": "Fox5",
-    "name": "Falmouth University",
-    "address": " Penryn Campus, Treliever Road, Penryn, Cornwall TR10 9FE, United Kingdom",
-    "location" : {
-      "lat" : 50.1705496,
-      "lng" : -5.125645099999929
-    }
- } 
+  }
 ]

@@ -17,14 +17,16 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     @IBOutlet weak var journeyButton: UIButton!
     
     var locationManager = CLLocationManager()
-    let regionRadius : CLLocationDistance = 75.0
+    let regionRadius : CLLocationDistance = 100.0
     var currentRegion: String! = "NA"
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        //locationManager.activityType = CLActivityTypeAutomativeNavigation
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()
         } else {
@@ -68,13 +70,13 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                                 let coordinate = CLLocationCoordinate2DMake(lat, lng)
                                 let circularRegion = CLCircularRegion.init(center: coordinate, radius: regionRadius, identifier: identifiers)
                                 locationManager.startMonitoring(for: circularRegion)
-                                print ("\(circularRegion)")
                                 
                                 //MARK: Annotate the locations
                                 let foxAnnotation = MKPointAnnotation ()
                                 foxAnnotation.coordinate = coordinate
                                 foxAnnotation.title = "\(name)"
                                 mapView.addAnnotations([foxAnnotation])
+                                print("\(foxAnnotation.title)")
                                 
                                 //MARK: Draw Circles around regions/annotations
                                 let circle = MKCircle(center: coordinate, radius: regionRadius)
@@ -109,7 +111,7 @@ class PathViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
         {
             let location = locations.first!
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius*10, regionRadius*10)
             mapView.setRegion(coordinateRegion, animated: true)
             //locationManager.stopUpdatingLocation()
         }

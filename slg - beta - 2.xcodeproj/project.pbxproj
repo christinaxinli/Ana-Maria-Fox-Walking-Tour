@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D20E972B1DB5B8B50044B5F5 /* pageStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E972A1DB5B8B50044B5F5 /* pageStart.swift */; };
+		D21CDE761DE8C92200237846 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21CDE751DE8C92200237846 /* LaunchScreen.storyboard */; };
 		D22C6E631DDA9E9100327C7B /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C6E621DDA9E9100327C7B /* DiaryViewController.swift */; };
 		D22C6E651DDA9E9A00327C7B /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C6E641DDA9E9A00327C7B /* Diary.swift */; };
 		D22C6E671DDA9EA200327C7B /* DiaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C6E661DDA9EA200327C7B /* DiaryTableViewController.swift */; };
@@ -18,6 +19,8 @@
 		D251523C1D5C473F00CC8006 /* Fox3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D251523B1D5C473F00CC8006 /* Fox3.swift */; };
 		D254CE961DDAD4970092EA77 /* SocialMediaPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D254CE951DDAD4970092EA77 /* SocialMediaPhoto.swift */; };
 		D25CC2851DE53DFC00B0D581 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25CC2841DE53DFC00B0D581 /* ViewController.swift */; };
+		D2C3963F1DE88944008E3634 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C3963D1DE88944008E3634 /* Fabric.framework */; };
+		D2C396401DE88944008E3634 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C3963E1DE88944008E3634 /* Crashlytics.framework */; };
 		D2CA50611D330E3B00B1E58F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA50601D330E3B00B1E58F /* AppDelegate.swift */; };
 		D2CA50631D330E3B00B1E58F /* PathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA50621D330E3B00B1E58F /* PathViewController.swift */; };
 		D2CA50661D330E3B00B1E58F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CA50641D330E3B00B1E58F /* Main.storyboard */; };
@@ -30,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		D20E972A1DB5B8B50044B5F5 /* pageStart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = pageStart.swift; path = ../pageStart.swift; sourceTree = "<group>"; };
+		D21CDE751DE8C92200237846 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D22C6E621DDA9E9100327C7B /* DiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		D22C6E641DDA9E9A00327C7B /* Diary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		D22C6E661DDA9EA200327C7B /* DiaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryTableViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +45,8 @@
 		D254CE951DDAD4970092EA77 /* SocialMediaPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaPhoto.swift; sourceTree = "<group>"; };
 		D25CC2841DE53DFC00B0D581 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D294405B1D7CECCB005B140A /* walking geo.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "walking geo.gpx"; path = "../../walking geo.gpx"; sourceTree = "<group>"; };
+		D2C3963D1DE88944008E3634 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		D2C3963E1DE88944008E3634 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		D2CA505D1D330E3B00B1E58F /* slg - beta - 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "slg - beta - 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CA50601D330E3B00B1E58F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CA50621D330E3B00B1E58F /* PathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C396401DE88944008E3634 /* Crashlytics.framework in Frameworks */,
+				D2C3963F1DE88944008E3634 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +77,8 @@
 		D2CA50541D330E3B00B1E58F = {
 			isa = PBXGroup;
 			children = (
+				D2C3963D1DE88944008E3634 /* Fabric.framework */,
+				D2C3963E1DE88944008E3634 /* Crashlytics.framework */,
 				D2CA505F1D330E3B00B1E58F /* slg - beta - 2 */,
 				D2CA505E1D330E3B00B1E58F /* Products */,
 			);
@@ -106,6 +116,7 @@
 				D22C6E6A1DDAACB400327C7B /* DiaryTableViewCell.swift */,
 				D2CA50671D330E3B00B1E58F /* Assets.xcassets */,
 				D2CA506C1D330E3B00B1E58F /* Info.plist */,
+				D21CDE751DE8C92200237846 /* LaunchScreen.storyboard */,
 			);
 			path = "slg - beta - 2";
 			sourceTree = "<group>";
@@ -131,6 +142,7 @@
 				D2CA50591D330E3B00B1E58F /* Sources */,
 				D2CA505A1D330E3B00B1E58F /* Frameworks */,
 				D2CA505B1D330E3B00B1E58F /* Resources */,
+				D2C3963C1DE888F9008E3634 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -153,9 +165,9 @@
 				TargetAttributes = {
 					D2CA505C1D330E3B00B1E58F = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = J23XK2T5SJ;
+						DevelopmentTeam = 52LVNVZK63;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -184,11 +196,28 @@
 			files = (
 				D2CA50681D330E3B00B1E58F /* Assets.xcassets in Resources */,
 				D2CA50771D3310D200B1E58F /* fox_locations.json in Resources */,
+				D21CDE761DE8C92200237846 /* LaunchScreen.storyboard in Resources */,
 				D2CA50661D330E3B00B1E58F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D2C3963C1DE888F9008E3634 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run d68a8bce0803596189751eb8f54d72f873e585f4 10f3fc26c9a39d4c9e2a8a4f500d8c856c93acc33f6f91d090b2f5555d20368d";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D2CA50591D330E3B00B1E58F /* Sources */ = {
@@ -323,13 +352,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 52LVNVZK63;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "slg - beta - 2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.christina.slg---beta---2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.christina.slg.anna-maria-fox-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "aefe1f8d-38fb-4f7f-a728-2cc9e0d2a29f";
+				PROVISIONING_PROFILE_SPECIFIER = "Christina Anna Maria Prod";
 				SWIFT_OBJC_BRIDGING_HEADER = "slg - beta - 2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -342,13 +377,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 52LVNVZK63;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "slg - beta - 2/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.christina.slg---beta---2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.christina.slg.anna-maria-fox-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "aefe1f8d-38fb-4f7f-a728-2cc9e0d2a29f";
+				PROVISIONING_PROFILE_SPECIFIER = "Christina Anna Maria Prod";
 				SWIFT_OBJC_BRIDGING_HEADER = "slg - beta - 2-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Crashlytics
 
 class ViewController: UIViewController {
     var currentFox: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 

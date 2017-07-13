@@ -2,20 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need this to monitor when you enter or exit a new area of exploration</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need this to guide you to the next area of exploration</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>&quot;Needs to access camera roll to select photos&quot;</string>
-	<key>NSCameraUsageDescription</key>
-	<string>&quot;Needs camera permission to take pictures&quot;</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>&quot;We need this permission to use photos you take in each Fox Spot for the diary&quot;</string>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Anna Maria Fox Walking Tour</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,13 +17,41 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>3.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>d68a8bce0803596189751eb8f54d72f873e585f4</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>"Needs to access camera roll to select photos"</string>
+	<key>NSCameraUsageDescription</key>
+	<string>"Needs camera permission to take pictures"</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need this to monitor when you enter or exit a new area of exploration</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need this to guide you to the next area of exploration</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>"We need this permission to use photos you take in each Fox Spot for the diary"</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
